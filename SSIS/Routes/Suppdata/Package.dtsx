@@ -1,0 +1,527 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/11/2018 12:23:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-4R563C6G"
+  DTS:CreatorName="LAPTOP-4R563C6G\Sara"
+  DTS:DTSID="{6354557D-C297-49DF-B4F3-9183DF70DEA0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3025.39"
+  DTS:LocaleID="1053"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{F8FCDBEC-C5FC-470E-8BA7-206FA9B51875}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C8AF876B-11B0-4D67-8BBD-5807857B2CD3}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Integrated Security=True;Application Name=SSIS-Package-{C8AF876B-11B0-4D67-8BBD-5807857B2CD3}LAPTOP-4R563C6G\SF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{26B1FA1F-0CB5-4780-962C-E890E3D89C21}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.DataWarehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=DataWarehouse;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{2F1C1A76-9D05-46B6-9981-FB336ADC52ED}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.DataWarehouse1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=DataWarehouse;Integrated Security=True;Application Name=SSIS-Package-{2F1C1A76-9D05-46B6-9981-FB336ADC52ED}LAPTOP-4R563C6G\SF.DataWarehouse1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse1 1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{13FB6076-98D3-4064-B91D-D05BEE41F0CD}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.DataWarehouse1 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=DataWarehouse;Integrated Security=True;Application Name=SSIS-Package-{13FB6076-98D3-4064-B91D-D05BEE41F0CD}LAPTOP-4R563C6G\SF.DataWarehouse1 1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.StagingArea]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1A31903C-7767-477E-B10D-CC55CD4D02AD}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.StagingArea">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=StagingArea;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add RouteID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C6C2814D-9B4A-41ED-BE2E-BA811867233E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add RouteID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{26B1FA1F-0CB5-4780-962C-E890E3D89C21}"
+          SQLTask:SqlStatementSource="ALTER TABLE Routes ADD RouteID int identity(1,1)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Routes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4D237207-062C-46C0-8AB9-4E980509C848}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Routes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Routes\2004 med select-sats"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="2004 med select-sats"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT Origin, Dest AS Destination, Distance FROM [Flightdata]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Routes\2004 med select-sats.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Origin]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].ExternalColumns[Origin]"
+                      length="50"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Origin]"
+                      name="Origin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Destination]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].ExternalColumns[Destination]"
+                      length="50"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Destination]"
+                      name="Destination"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Distance]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Distance]"
+                      name="Distance"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].ExternalColumns[Origin]"
+                      dataType="wstr"
+                      length="50"
+                      name="Origin" />
+                    <externalMetadataColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].ExternalColumns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      name="Destination" />
+                    <externalMetadataColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
+                      dataType="i4"
+                      name="Distance" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[Origin]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[Origin]"
+                      name="Origin" />
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[Destination]"
+                      name="Destination" />
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[Distance]"
+                      dataType="i4"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[Distance]"
+                      name="Distance" />
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Routes\Routes"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Routes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Routes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Routes\Routes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Routes\Routes.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Routes\Routes.Inputs[OLE DB Destination Input].Columns[Origin]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Origin"
+                      externalMetadataColumnId="Package\Routes\Routes.Inputs[OLE DB Destination Input].ExternalColumns[Origin]"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Origin]" />
+                    <inputColumn
+                      refId="Package\Routes\Routes.Inputs[OLE DB Destination Input].Columns[Destination]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Destination"
+                      externalMetadataColumnId="Package\Routes\Routes.Inputs[OLE DB Destination Input].ExternalColumns[Destination]"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Destination]" />
+                    <inputColumn
+                      refId="Package\Routes\Routes.Inputs[OLE DB Destination Input].Columns[Distance]"
+                      cachedDataType="i4"
+                      cachedName="Distance"
+                      externalMetadataColumnId="Package\Routes\Routes.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
+                      lineageId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output].Columns[Distance]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Routes\Routes.Inputs[OLE DB Destination Input].ExternalColumns[Origin]"
+                      dataType="wstr"
+                      length="50"
+                      name="Origin" />
+                    <externalMetadataColumn
+                      refId="Package\Routes\Routes.Inputs[OLE DB Destination Input].ExternalColumns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      name="Destination" />
+                    <externalMetadataColumn
+                      refId="Package\Routes\Routes.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
+                      dataType="i4"
+                      name="Distance" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Routes\Routes.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Routes\Routes.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Routes\Routes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Routes\Routes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Routes\Routes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Routes\Routes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Routes.Paths[OLE DB Source Output]"
+              endId="Package\Routes\Routes.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Routes\2004 med select-sats.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{453C7E2C-2D88-4010-B53E-4A9C407DEF8F}"
+      DTS:From="Package\Routes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Add RouteID" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\Routes"
+          TopLeft="74.8571441319524,83.2000011668486" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Add RouteID"
+          TopLeft="105.142858933429,164.329414046924" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="130.057144131952,124.800001166849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.285714801477,39.5294128800759"
+              Start="0,0"
+              End="44.285714801477,32.0294128800759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7647064400379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7647064400379"
+                    Point2="0,19.7647064400379"
+                    Point3="4,19.7647064400379" />
+                  <mssgle:LineSegment
+                    End="40.285714801477,19.7647064400379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.285714801477,19.7647064400379"
+                    Point2="44.285714801477,19.7647064400379"
+                    Point3="44.285714801477,23.7647064400379" />
+                  <mssgle:LineSegment
+                    End="44.285714801477,32.0294128800759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Routes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\Routes\Routes"
+          TopLeft="105.714287514589,144.37647261306" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Routes\2004 med select-sats"
+          TopLeft="77.1428584565922,49.5529418714318" />
+        <EdgeLayout
+          Id="Package\Routes.Paths[OLE DB Source Output]"
+          TopLeft="163.628572985591,91.1529418714318">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.2235307416282"
+              Start="0,0"
+              End="0,45.7235307416282">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7235307416282" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Routes\2004 med select-sats">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Routes\Routes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

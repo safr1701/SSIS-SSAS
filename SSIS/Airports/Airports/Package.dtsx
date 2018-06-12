@@ -1,0 +1,1930 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2018 5:14:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-UST2MTL"
+  DTS:CreatorName="DESKTOP-UST2MTL\marie"
+  DTS:DTSID="{26425305-AE1D-47B0-AAAC-C251571D833F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3025.39"
+  DTS:LocaleID="1053"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{90955023-F495-4595-8F6B-145C11761713}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{4A493B4D-22C9-40A3-9DA8-CAAA9AEF30C7}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Integrated Security=True;Application Name=SSIS-Package-{4A493B4D-22C9-40A3-9DA8-CAAA9AEF30C7}LAPTOP-4R563C6G\SF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AE38BE81-CCEC-411B-AA56-371A26BC6CAA}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.DataWarehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=DataWarehouse;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.SourceSytems]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7CE79F13-3113-4E3E-BB43-AA85E1082EBA}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.SourceSytems">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=SourceSytems;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.StagingArea]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C54FB444-2927-4DD0-BA8C-B5B60868A871}"
+      DTS:ObjectName="LAPTOP-4R563C6G\SF.StagingArea">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-4R563C6G\SF;Initial Catalog=StagingArea;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Airport"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B85A09D5-34F0-40D9-A6CF-EDB4701376C4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Airport"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Airport\AirportDW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="AirportDW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AirportDW]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Airport\AirportDW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.DataWarehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_iata_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_iata_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[AirportID]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_airport_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_airport_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Airportname]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_city_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_city_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_state_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_state_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_country_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_country_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_lat_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_lat_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].Columns[_long_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_long_"
+                      externalMetadataColumnId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[AirportID]"
+                      dataType="wstr"
+                      length="50"
+                      name="AirportID" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Airportname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Airportname" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Airport\AirportDW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\AirportDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Airport\AirportDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Airport\AirportDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Airport\AirportDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Airport\AirportNA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="AirportNA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AirportNA]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Airport\AirportNA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[AirportID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AirportID"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[AirportID]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[AirportID]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[Airportname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Airportname"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Airportname]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Airportname]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Longitude]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[AirportID]"
+                      dataType="wstr"
+                      length="50"
+                      name="AirportID" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Airportname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Airportname" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="wstr"
+                      length="50"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="wstr"
+                      length="50"
+                      name="Longitude" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Airport\AirportNA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\AirportNA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Airport\AirportNA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Airport\AirportNA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Airport\AirportNA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Airport\Airports"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Airports"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[airports]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Airport\Airports.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.SourceSytems]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-4R563C6G\SF.SourceSytems]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Airport\Airports.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_iata_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]"
+                      name="_iata_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_airport_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]"
+                      name="_airport_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_city_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]"
+                      name="_city_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_state_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]"
+                      name="_state_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_country_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]"
+                      name="_country_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_lat_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]"
+                      name="_lat_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_long_]"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]"
+                      name="_long_"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_iata_]"
+                      dataType="wstr"
+                      length="50"
+                      name="_iata_" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_airport_]"
+                      dataType="wstr"
+                      length="50"
+                      name="_airport_" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_city_]"
+                      dataType="wstr"
+                      length="50"
+                      name="_city_" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_state_]"
+                      dataType="wstr"
+                      length="50"
+                      name="_state_" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_country_]"
+                      dataType="wstr"
+                      length="50"
+                      name="_country_" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_lat_]"
+                      dataType="r8"
+                      name="_lat_" />
+                    <externalMetadataColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Output].ExternalColumns[_long_]"
+                      dataType="r8"
+                      name="_long_" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_iata_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_iata_]"
+                      name="_iata_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_airport_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_airport_]"
+                      name="_airport_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_city_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_city_]"
+                      name="_city_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_state_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_state_]"
+                      name="_state_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_country_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_country_]"
+                      name="_country_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_lat_]"
+                      dataType="r8"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_lat_]"
+                      name="_lat_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_long_]"
+                      dataType="r8"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[_long_]"
+                      name="_long_" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Airport\Name"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Name"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Airport\Name.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[AirportID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_iata_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]"
+                      name="AirportID"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">AirportID</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[Airportname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_airport_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]"
+                      name="Airportname"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Airportname</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_city_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]"
+                      name="City"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">City</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_state_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]"
+                      name="State"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">State</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_country_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Country</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[Latitude]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_lat_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Latitude</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Name.Inputs[Derived Column Input].Columns[Longitude]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_long_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Longitude</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Airport\Name.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Airport\Name.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Airport\Name.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Airport\Name.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Airport\Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Airport\Null split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Null split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Airport\Null split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_iata_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_iata_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]" />
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_airport_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_airport_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]" />
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_city_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_city_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]" />
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_state_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_state_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]" />
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_country_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_country_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]" />
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_lat_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_lat_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]" />
+                    <inputColumn
+                      refId="Package\Airport\Null split.Inputs[Conditional Split Input].Columns[_long_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_long_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Airport\Null split.Outputs[Null]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Null"
+                  synchronousInputId="Package\Airport\Null split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">" [AirportID] " == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]}) || "[Airportname]" == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]}) || " City" == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]}) || " State " == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]}) || "Country" == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]}) || "Latitude" == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]}) || " Longitude" == "" || [ISNULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">" [AirportID] " == "" || ISNULL(AirportID) || "[Airportname]" == "" || ISNULL(Airportname) || " City" == "" || ISNULL(City) || " State " == "" || ISNULL(State) || "Country" == "" || ISNULL(Country) || "Latitude" == "" || ISNULL(Latitude) || " Longitude" == "" || ISNULL(Longitude)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Airport\Null split.Outputs[NA]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NA"
+                  synchronousInputId="Package\Airport\Null split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]} == "NA" || #{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]} == "NA" || #{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]} == "NA" || #{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]} == "NA" || #{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]} == "NA" || #{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]} == "NA" || #{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]} == "NA"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">AirportID == "NA" || Airportname == "NA" || City == "NA" || State == "NA" || Country == "NA" || Latitude == "NA" || Longitude == "NA"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Airport\Null split.Outputs[Data]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Data"
+                  synchronousInputId="Package\Airport\Null split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Airport\Null split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Airport\Null split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\Null split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Null split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Airport\Null split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Null split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Airport\Null to NA"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Null to NA"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Airport\Null to NA.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_iata_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_iata_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(AirportID,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_airport_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_airport_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Airportname,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_city_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_city_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(City,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_state_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_state_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(State,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_country_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_country_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Country,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_lat_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_lat_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Latitude,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Null to NA.Inputs[Derived Column Input].Columns[_long_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_long_"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]},"NA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Longitude,"NA")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Airport\Null to NA.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Airport\Null to NA.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Airport\Null to NA.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Airport\Null to NA.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\Null to NA.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Null to NA.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Airport\Null to NA.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Airport\Null to NA.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Airport\Union"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Airport\Union.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_iata_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_iata_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[AirportID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_airport_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_airport_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Airportname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_city_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_city_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_state_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_state_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[State]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_country_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_country_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_lat_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_lat_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Latitude]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 1].Columns[_long_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_long_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Longitude]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Airport\Union.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_iata_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_iata_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_iata_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[AirportID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_airport_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_airport_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_airport_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Airportname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_city_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_city_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_city_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_state_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_state_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_state_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[State]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_country_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_country_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_country_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_lat_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_lat_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_lat_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Latitude]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Airport\Union.Inputs[Union All Input 2].Columns[_long_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_long_"
+                      lineageId="Package\Airport\Airports.Outputs[OLE DB Source Output].Columns[_long_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Airport\Union.Outputs[Union All Output 1].Columns[Longitude]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Airport\Union.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Airport\Union.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[AirportID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[AirportID]"
+                      name="AirportID" />
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Airportname]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Airportname]"
+                      name="Airportname" />
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[City]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[State]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Latitude]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Latitude]"
+                      name="Latitude" />
+                    <outputColumn
+                      refId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Longitude]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Airport\Union.Outputs[Union All Output 1].Columns[Longitude]"
+                      name="Longitude" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Airport.Paths[data]"
+              endId="Package\Airport\AirportDW.Inputs[OLE DB Destination Input]"
+              name="data"
+              startId="Package\Airport\Null split.Outputs[Data]" />
+            <path
+              refId="Package\Airport.Paths[Derived Column Output]"
+              endId="Package\Airport\Null split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Airport\Name.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Airport.Paths[Derived Column Output1]"
+              endId="Package\Airport\Union.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Airport\Null to NA.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Airport.Paths[NA]"
+              endId="Package\Airport\Union.Inputs[Union All Input 2]"
+              name="NA"
+              startId="Package\Airport\Null split.Outputs[NA]" />
+            <path
+              refId="Package\Airport.Paths[Null]"
+              endId="Package\Airport\Null to NA.Inputs[Derived Column Input]"
+              name="Null"
+              startId="Package\Airport\Null split.Outputs[Null]" />
+            <path
+              refId="Package\Airport.Paths[OLE DB Source Output]"
+              endId="Package\Airport\Name.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Airport\Airports.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Airport.Paths[Union All Output 1]"
+              endId="Package\Airport\AirportNA.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Airport\Union.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6e68e108-43c3-4972-8419-c7ddbb669b5d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4A493B4D-22C9-40A3-9DA8-CAAA9AEF30C7}"
+          SQLTask:SqlStatementSource="truncate table [StagingArea].[dbo].[AirportNA]; truncate table [DataWarehouse].[dbo].[AirportDW];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B53B4E2B-B7A3-40C9-B578-AB7904FDA70D}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Airport" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\Airport"
+          TopLeft="96.7619040681391,115.870588942214" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Truncate tables"
+          TopLeft="71.0476179159418,25.1647038866451" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="149.30476099204,66.7647038866451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.1058850555689"
+              Start="0,0"
+              End="0,41.6058850555689">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.6058850555689" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Airport">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Airport\AirportNA"
+          TopLeft="156.261903108535,344.525479819385" />
+        <NodeLayout
+          Size="105.6,41.6"
+          Id="Package\Airport\Name"
+          TopLeft="110.214283998979,104.739213989062" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Airport\Airports"
+          TopLeft="104.809522667406,29.8235292493389" />
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Airport\Null split"
+          TopLeft="106.404760976075,181.872545611321" />
+        <NodeLayout
+          Size="105.6,41.6"
+          Id="Package\Airport\Union"
+          TopLeft="169.714283495533,261.010916395676" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Airport\Null to NA"
+          TopLeft="17.119046287421,261.631366816661" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Airport\AirportDW"
+          TopLeft="281.571424357441,182.533327398814" />
+        <EdgeLayout
+          Id="Package\Airport.Paths[Null]"
+          TopLeft="147.204760976075,223.472545611321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-67.2857146886541,38.1588212053404"
+              Start="0,0"
+              End="-67.2857146886541,30.6588212053404">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5687990517789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5687990517789"
+                    Point2="0,15.5687990517789"
+                    Point3="-4,15.5687990517789" />
+                  <mssgle:LineSegment
+                    End="-63.2857146886541,15.5687990517789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-63.2857146886541,15.5687990517789"
+                    Point2="-67.2857146886541,15.5687990517789"
+                    Point3="-67.2857146886541,19.5687990517789" />
+                  <mssgle:LineSegment
+                    End="-67.2857146886541,30.6588212053404" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.3449862505771,20.5687990517789,17.4042578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Airport.Paths[NA]"
+          TopLeft="184.004760976075,223.472545611321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.509522519458,37.5383707843549"
+              Start="0,0"
+              End="38.509522519458,30.0383707843549">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.3156552800168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.3156552800168"
+                    Point2="0,15.3156552800168"
+                    Point3="4,15.3156552800168" />
+                  <mssgle:LineSegment
+                    End="34.509522519458,15.3156552800168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.509522519458,15.3156552800168"
+                    Point2="38.509522519458,15.3156552800168"
+                    Point3="38.509522519458,19.3156552800168" />
+                  <mssgle:LineSegment
+                    End="38.509522519458,30.0383707843549" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.265952665979,20.3156552800168,13.9776171875,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Airport.Paths[Derived Column Output1]"
+          TopLeft="142.719046287421,282.121141606169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.995237208112,0"
+              Start="0,0"
+              End="19.495237208112,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.495237208112,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Airport.Paths[Derived Column Output]"
+          TopLeft="164.309522487527,146.339213989062">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.5333316222589"
+              Start="0,0"
+              End="0,28.0333316222589">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0333316222589" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Airport.Paths[data]"
+          TopLeft="224.804760976075,203.002936505068">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.7666633813661,0"
+              Start="0,0"
+              End="49.2666633813661,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="49.2666633813661,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.004972315683,5,21.25671875,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Airport.Paths[Union All Output 1]"
+          TopLeft="220.388093302034,302.610916395676">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.9145634237087"
+              Start="0,0"
+              End="0,34.4145634237087">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4145634237087" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Airport.Paths[OLE DB Source Output]"
+          TopLeft="162.711903333192,71.4235292493389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.3156847397233"
+              Start="0,0"
+              End="0,25.8156847397233">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8156847397233" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Airport\AirportNA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Airport\Airports">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Airport\AirportDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
