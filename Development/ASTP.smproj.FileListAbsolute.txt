@@ -1,0 +1,6 @@
+C:\Users\Sara\Documents\Visual Studio 2015\Projects\ASTP\ASTP\bin\Model.asdatabase
+C:\Users\Sara\Documents\Visual Studio 2015\Projects\ASTP\ASTP\bin\Model.deploymenttargets
+C:\Users\Sara\Documents\Visual Studio 2015\Projects\ASTP\ASTP\bin\Model.deploymentoptions
+C:\Users\Sara\Documents\Visual Studio 2015\Projects\ASTP\ASTP\obj\Development\Model.asdatabase
+C:\Users\Sara\Documents\Visual Studio 2015\Projects\ASTP\ASTP\obj\Development\Model.deploymentoptions
+C:\Users\Sara\Documents\Visual Studio 2015\Projects\ASTP\ASTP\obj\Development\Model.deploymenttargets
